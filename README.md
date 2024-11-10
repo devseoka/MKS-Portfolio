@@ -1,6 +1,6 @@
 # Seoka Moshele - Full-Stack Developer | .NET, C#, Angular Expert
 
-Welcome to my project repository! I’m Seoka Moshele, a dedicated full-stack developer specializing in **.NET**, **C#**, **Angular**, and **TypeScript**. This repository showcases a collection of projects where I implement industry-leading practices to build scalable, high-performance solutions.
+Welcome to my portofilo project repository! I’m Seoka Moshele, a dedicated full-stack developer specializing in **.NET**, **C#**, **Angular**, and **TypeScript**. This repository showcases a collection of projects where I implement industry-leading practices to build scalable, high-performance solutions.
 
 With expertise in both front-end and back-end development, my goal is to create dynamic, user-friendly applications that meet business objectives while providing seamless user experiences. I focus on clean, maintainable code, following principles such as **SOLID** and **Domain-Driven Design (DDD)**, and utilizing **CI/CD pipelines** and **DevOps practices** for streamlined development.
 
