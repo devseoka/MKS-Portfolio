@@ -1,0 +1,9 @@
+@import 'abstracts/variable';
+@import 'abstracts/placeholders';
+@import 'abstracts/mixins';
+@import 'base/normalize';
+@import 'base/reset';
+
+html, body {
+    background: $mks-secondary-500;
+}

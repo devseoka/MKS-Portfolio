@@ -1,0 +1,190 @@
+@import '../abstracts/variable';
+
+/* ==========================================================================
+   General Reset
+   ========================================================================== */
+
+/* 1.1. Reset all margin and padding to 0 for all elements */
+html,
+body {
+    background-color: $mks-secondary-500;
+    color: $mks-secondary-50; // Set text color to white for contrast (optional)
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1.2. Remove the default font family and set a global font */
+body {
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 1.3. Remove default list styles */
+ol,
+ul {
+    list-style: none;
+}
+
+/* 1.4. Remove the default border and background for form elements */
+input,
+select,
+textarea,
+button {
+    border: none;
+    background: transparent;
+    font: inherit;
+    line-height: inherit;
+}
+
+/* 1.5. Prevent text selection cursor on non-selectable content */
+*::selection {
+    background-color: transparent;
+    color: inherit;
+}
+
+/* ==========================================================================
+   HTML Elements
+   ========================================================================== */
+
+/* 2.1. Set all HTML elements to have a consistent display */
+html {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/* 2.2. Style all block elements */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/* 2.3. Remove table borders and padding */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/* 3.1. Remove text decoration from links */
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Images
+   ========================================================================== */
+
+/* 4.1. Remove borders from images */
+img {
+    border: none;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   Form Elements
+   ========================================================================== */
+
+/* 5.1. Remove input, select, button borders */
+input,
+select,
+button,
+textarea {
+    border: none;
+    outline: none;
+}
+
+/* 5.2. Set consistent appearance for inputs, selects, and textareas */
+input,
+select,
+textarea {
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    line-height: inherit;
+}
+
+/* ==========================================================================
+   Table
+   ========================================================================== */
+
+/* 6.1. Remove padding from table elements */
+th,
+td {
+    padding: 0;
+    text-align: left;
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+/* 7.1. Visually hide elements but keep them accessible for screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Miscellaneous
+   ========================================================================== */
+
+/* 8.1. Reset form field focus outline */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+    outline: none;
+}
+
+/* 8.2. Reset background color for buttons */
+button {
+    background: none;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Custom Styles
+   ========================================================================== */
+
+/* 9.1. Add custom base styling */
+body {
+    line-height: 1.6;
+    color: #333;
+}
