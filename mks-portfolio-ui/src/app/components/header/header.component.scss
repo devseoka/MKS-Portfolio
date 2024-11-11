@@ -1,0 +1,55 @@
+@import '../../../assets/scss/abstracts/variable';
+section {
+    display: grid;
+    background: $mks-secondary-900;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; 
+    align-items: center;
+    justify-items: center;
+
+    article {
+        width: 100%;
+
+        h1 {
+            font-size: 1.875rem;
+            line-height: 1.2;
+            text-transform: capitalize;
+            padding-bottom: 1rem;
+            span {
+                color: $mks-primary-500;
+            }
+        }
+
+        h4 {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    }
+
+    img {
+        object-fit: cover;
+        width: auto;
+        height: 100%;
+        filter: grayscale(100%);
+        mix-blend-mode: overlay;
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+
+        article {
+            width: 100%;
+            margin: 0;
+            h1 {
+                font-size: 1.5rem;
+            }
+            h4 {
+                font-size: 0.875rem;
+            }
+        }
+
+        img {
+            display: none;
+        }
+    }
+}

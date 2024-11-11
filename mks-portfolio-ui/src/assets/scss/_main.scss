@@ -1,0 +1,12 @@
+@import 'abstracts/variable';
+@import 'abstracts/placeholders';
+@import 'abstracts/mixins';
+@import 'base/normalize';
+@import 'base/reset';
+
+:root {
+    background: $mks-secondary-900;
+    font-family: 'Host Grotesk', sans-serif;
+    font-size: 18px;
+    color: $gray-100;
+}

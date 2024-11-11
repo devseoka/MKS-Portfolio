@@ -1,0 +1,146 @@
+
+$mks-primary-50: #fce7e6;
+$mks-primary-100: #f7c6c1;
+$mks-primary-200: #f29e97;
+$mks-primary-300: #ec776c;
+$mks-primary-400: #ef4028;  
+$mks-primary-500: #d03222;
+$mks-primary-600: #b12b1d;
+$mks-primary-700: #8f2216;
+$mks-primary-800: #6d190f;
+$mks-primary-900: #4c130a;
+
+// mks-secondary-colors
+$mks-secondary-50: #d7cdc5;  
+$mks-secondary-100: #a68f86; 
+$mks-secondary-200: #8f7f73;
+$mks-secondary-300: #7a6f60;
+$mks-secondary-400: #645e4f;
+$mks-secondary-500: #3a322d; 
+$mks-secondary-600: #332924; 
+$mks-secondary-700: #2b201d;
+$mks-secondary-800: #211718;
+$mks-secondary-900: #1a1010; 
+
+// Grayscale Colors
+$gray-100: #f7f7f7;
+$gray-200: #e0e0e0;
+$gray-300: #ccc;
+$gray-400: #888;
+$gray-500: #555;
+$gray-600: #333;
+$gray-700: #222;
+$gray-800: #111;
+$gray-900: #000;
+
+// -- Typography --
+$font-family-primary: 'Helvetica', 'Arial', sans-serif;
+$font-family-secondary: 'Georgia', 'serif';
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 24px;
+
+$line-height-sm: 1.4;
+$line-height-md: 1.6;
+$line-height-lg: 1.8;
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-light: 300;
+
+// -- Spacing --
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 32px;
+$space-xl: 64px;
+$space-xxl: 128px;
+
+$padding-xs: $space-sm;
+$padding-sm: $space-md;
+$padding-md: $space-lg;
+$padding-lg: $space-xl;
+$padding-xl: $space-xxl;
+
+$margin-xs: $space-xs;
+$margin-sm: $space-sm;
+$margin-md: $space-md;
+$margin-lg: $space-lg;
+$margin-xl: $space-xl;
+
+// -- Borders & Border Radius --
+$border-width-thin: 1px;
+$border-width-thick: 2px;
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+$border-radius-full: 50%;
+
+$border-color-light: #e0e0e0;
+$border-color-dark: #333;
+
+// -- Shadows --
+$box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+$text-shadow-sm: 1px 1px 2px rgba(0, 0, 0, 0.1);
+$text-shadow-md: 2px 2px 4px rgba(0, 0, 0, 0.2);
+$text-shadow-lg: 3px 3px 6px rgba(0, 0, 0, 0.3);
+
+// -- Breakpoints --
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1440px;
+
+// -- Z-Index --
+$z-index-base: 10;
+$z-index-dropdown: 100;
+$z-index-modal: 200;
+$z-index-tooltip: 300;
+
+// -- Transitions & Animations --
+$transition-duration: 0.3s;
+$transition-ease: ease-in-out;
+
+$animation-duration-fast: 0.2s;
+$animation-duration-normal: 0.5s;
+$animation-duration-slow: 1s;
+$animation-ease-in: ease-in;
+$animation-ease-out: ease-out;
+
+// -- Opacity --
+$opacity-100: 1;
+$opacity-90: 0.9;
+$opacity-80: 0.8;
+$opacity-70: 0.7;
+$opacity-60: 0.6;
+$opacity-50: 0.5;
+$opacity-40: 0.4;
+$opacity-30: 0.3;
+$opacity-20: 0.2;
+$opacity-10: 0.1;
+$opacity-0: 0;
+
+// -- Font Sizes for Specific Use Cases --
+$heading-font-size: 36px;
+$subheading-font-size: 24px;
+$body-font-size: 16px;
+$small-font-size: 12px;
+
+// -- Custom Utility Variables --
+$container-width: 1200px;
+$max-width: 100%;
+$min-width: 320px;
+
+$theme-light-background: #ffffff;
+$theme-dark-background: #000000;
+$theme-light-text: #333333;
+$theme-dark-text: #ffffff;

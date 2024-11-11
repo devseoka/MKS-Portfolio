@@ -1,0 +1,190 @@
+
+@mixin bg-mks-primary($shade) {
+    background-color: map-get((
+      50: $mks-primary-50,
+      100: $mks-primary-100,
+      200: $mks-primary-200,
+      300: $mks-primary-300,
+      400: $mks-primary-400,
+      500: $mks-primary-500,
+      600: $mks-primary-600,
+      700: $mks-primary-700,
+      800: $mks-primary-800,
+      900: $mks-primary-900
+    ), $shade);
+  }
+  @mixin bg-mks-secondary($shade) {
+    background-color: map-get((
+      50: $mks-secondary-50,
+      100: $mks-secondary-100,
+      200: $mks-secondary-200,
+      300: $mks-secondary-300,
+      400: $mks-secondary-400,
+      500: $mks-secondary-500,
+      600: $mks-secondary-600,
+      700: $mks-secondary-700,
+      800: $mks-secondary-800,
+      900: $mks-secondary-900
+    ), $shade);
+  }
+  
+  @mixin media-query($size) {
+    @if $size == 'sm' {
+      @media (max-width: $breakpoint-sm) {
+        @content;
+      }
+    }
+    @else if $size == 'md' {
+      @media (max-width: $breakpoint-md) {
+        @content;
+      }
+    }
+    @else if $size == 'lg' {
+      @media (max-width: $breakpoint-lg) {
+        @content;
+      }
+    }
+  }
+  // _mixins.scss
+
+// Primary Color Variable (example)
+$primary-color: #ef4028;  // Example primary color
+
+// 1. Box Shadow Mixin using $primary-color
+@mixin box-shadow-primary($x: 0px, $y: 4px, $blur: 6px, $opacity: 0.2) {
+  box-shadow: $x $y $blur rgba($primary-color, $opacity);
+}
+
+// 2. Border Radius Mixin
+@mixin border-radius($radius: 4px) {
+  border-radius: $radius;
+}
+
+// 3. Flexbox Container Mixin
+@mixin flex-container($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// 4. Text Truncation Mixin
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 5. Responsive Typography Mixin
+@mixin responsive-font($min-size, $max-size) {
+  font-size: $min-size;
+  @media (min-width: 576px) {
+    font-size: $max-size;
+  }
+}
+
+// 6. Transition Mixin
+@mixin transition($property, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// 7. Centering Mixin
+@mixin center($position: absolute, $top: 50%, $left: 50%, $transform: translate(-50%, -50%)) {
+  position: $position;
+  top: $top;
+  left: $left;
+  transform: $transform;
+}
+
+// 8. Clearfix Mixin
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+// 9. Grid Layout Mixin
+@mixin grid-layout($columns: 12, $gutter: 20px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gutter;
+}
+
+// 10. Background Image Mixin
+@mixin background-image($image, $fallback-color: transparent) {
+  background-image: url($image);
+  background-color: $fallback-color;
+  background-size: cover;
+  background-position: center;
+}
+
+// 11. Custom Media Query Mixin
+@mixin media-query($size) {
+  @if $size == 'sm' {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+  @else if $size == 'md' {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @else if $size == 'lg' {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+// 12. Typography Styles Mixin
+@mixin typography($font-size, $font-weight: normal, $line-height: 1.5, $font-family: 'Arial', $color: #333) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  font-family: $font-family;
+  color: $color;
+}
+
+// 13. Flex Item Mixin
+@mixin flex-item($grow: 0, $shrink: 1, $basis: auto) {
+  flex-grow: $grow;
+  flex-shrink: $shrink;
+  flex-basis: $basis;
+}
+
+// 14. Media Query Breakpoint Mixin
+@mixin media-query($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'md' {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'lg' {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Breakpoint #{$breakpoint} not defined.";
+  }
+}
+
+// 15. Box Model Mixin (box-sizing)
+@mixin box-model($box-sizing: border-box) {
+  -webkit-box-sizing: $box-sizing;
+  -moz-box-sizing: $box-sizing;
+  box-sizing: $box-sizing;
+}
+
+// 16. Gradient Mixin
+@mixin linear-gradient($angle, $start-color, $end-color) {
+  background: linear-gradient($angle, $start-color, $end-color);
+}

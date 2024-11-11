@@ -1,0 +1,214 @@
+// _typography.scss
+
+/* ==========================================================================
+   Typography Base Settings
+   ========================================================================== */
+
+// Global font settings
+$font-family-primary: 'Host Grotesk', sans-serif;
+$base-font-size: 16px;
+$base-line-height: 1.5;
+
+// Heading font settings
+$heading-font-family: $font-family-secondary;
+$heading-font-weight: bold;
+
+// Paragraph and body text settings
+$body-font-family: $font-family-primary;
+$body-font-weight: normal;
+
+// Font sizes (rem units for scalable typography)
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.875rem; // 14px
+$font-size-md: 1rem; // 16px (base)
+$font-size-lg: 1.125rem; // 18px
+$font-size-xl: 1.25rem; // 20px
+$font-size-xxl: 1.5rem; // 24px
+$font-size-xxxl: 2rem; // 32px
+
+// Line heights
+$line-height-xs: 1.25;
+$line-height-sm: 1.4;
+$line-height-md: 1.5;
+$line-height-lg: 1.6;
+$line-height-xl: 1.7;
+
+// Text color variables
+$primary-text-color: #333;
+$secondary-text-color: #555;
+$muted-text-color: #777;
+
+/* ==========================================================================
+   Typography Mixins
+   ========================================================================== */
+
+// Mixin for setting font family
+@mixin font-family($family: $font-family-primary) {
+  font-family: $family, sans-serif;
+}
+
+// Mixin for setting font size and line height
+@mixin font-size($size: $base-font-size, $line-height: $base-line-height) {
+  font-size: $size;
+  line-height: $line-height;
+}
+
+// Mixin for setting font weight
+@mixin font-weight($weight: normal) {
+  font-weight: $weight;
+}
+
+// Mixin for setting text color
+@mixin text-color($color: $primary-text-color) {
+  color: $color;
+}
+
+// Mixin for setting text alignment
+@mixin text-align($align: left) {
+  text-align: $align;
+}
+
+// Mixin for setting letter spacing
+@mixin letter-spacing($spacing: 0) {
+  letter-spacing: $spacing;
+}
+
+/* ==========================================================================
+   Base Typography
+   ========================================================================== */
+
+// Global body text
+body {
+  @include font-family($body-font-family);
+  @include font-size($base-font-size, $base-line-height);
+  @include text-color($primary-text-color);
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+// Headings - using mixins to apply typography settings
+h1, h2, h3, h4, h5, h6 {
+  @include font-family($heading-font-family);
+  @include font-weight($heading-font-weight);
+  margin: 0;
+  padding: 0;
+}
+
+// Headings font-size and line-height based on hierarchy
+h1 {
+  @include font-size($font-size-xxxl, $line-height-lg);
+}
+
+h2 {
+  @include font-size($font-size-xxl, $line-height-lg);
+}
+
+h3 {
+  @include font-size($font-size-xl, $line-height-lg);
+}
+
+h4 {
+  @include font-size($font-size-lg, $line-height-md);
+}
+
+h5 {
+  @include font-size($font-size-md, $line-height-md);
+}
+
+h6 {
+  @include font-size($font-size-sm, $line-height-md);
+}
+
+// Paragraphs and other text
+p {
+  @include font-size($font-size-md, $line-height-md);
+  @include font-family($body-font-family);
+  margin-bottom: 1rem;
+}
+
+a {
+  @include font-family($body-font-family);
+  @include font-size($font-size-md, $line-height-md);
+  @include text-color($primary-text-color);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+// Links
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: $font-size-xs;
+}
+
+code, pre {
+  font-family: $font-family-monospace;
+}
+
+blockquote {
+  font-size: $font-size-lg;
+  line-height: $line-height-lg;
+  font-style: italic;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #ddd;
+}
+
+/* ==========================================================================
+   Utility Classes for Typography
+   ========================================================================== */
+
+// Utility class for text-center alignment
+.text-center {
+  @include text-align(center);
+}
+
+// Utility class for text-right alignment
+.text-right {
+  @include text-align(right);
+}
+
+// Utility class for muted text color
+.text-muted {
+  @include text-color($muted-text-color);
+}
+
+// Utility class for large text
+.text-lg {
+  @include font-size($font-size-lg, $line-height-md);
+}
+
+// Utility class for small text
+.text-sm {
+  @include font-size($font-size-sm, $line-height-sm);
+}
+
+// Utility class for uppercase text
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+// Utility class for lowercase text
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+// Utility class for capitalize text
+.text-capitalize {
+  text-transform: capitalize;
+}

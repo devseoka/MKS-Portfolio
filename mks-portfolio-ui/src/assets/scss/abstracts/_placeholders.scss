@@ -1,0 +1,194 @@
+/* Button Styles */
+%btn-base {
+    display: inline-block;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    text-decoration: none;
+    padding: $space-sm $space-md;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    transition: background-color $transition-duration $transition-ease;
+    &:hover {
+      opacity: 0.9;
+    }
+  
+    &:disabled {
+      background-color: $gray-300;
+      cursor: not-allowed;
+    }
+  }
+  
+  /* Card Styles */
+  %card-base {
+    background-color: $theme-light-background;
+    box-shadow: $box-shadow-sm;
+    padding: $space-md;
+    border-radius: $border-radius-md;
+    border: 1px solid $border-color-light;
+    transition: box-shadow $transition-duration $transition-ease;
+  
+    &:hover {
+      box-shadow: $box-shadow-md;
+    }
+  
+    &.dark {
+      background-color: $theme-dark-background;
+      color: $theme-dark-text;
+      border: 1px solid $border-color-dark;
+    }
+  }
+  
+  /* Input Fields */
+  %input-base {
+    width: 100%;
+    padding: $space-sm;
+    font-size: $font-size-md;
+    border: 1px solid $border-color-light;
+    border-radius: $border-radius-sm;
+    background-color: $theme-light-background;
+    color: $theme-light-text;
+    transition: border-color $transition-duration $transition-ease;
+  
+    &:focus {
+      border-color: $mks-primary-500;
+      outline: none;
+    }
+  
+    &:disabled {
+      background-color: $gray-200;
+      cursor: not-allowed;
+    }
+  }
+  
+  /* Heading Styles */
+  %heading-base {
+    font-family: $font-family-secondary;
+    font-weight: $font-weight-bold;
+    margin-bottom: $space-sm;
+    color: $theme-light-text;
+  }
+  
+  %heading-primary {
+    @extend %heading-base;
+    font-size: $font-size-xxl;
+  }
+  
+  %heading-secondary {
+    @extend %heading-base;
+    font-size: $font-size-xl;
+  }
+  
+  %heading-tertiary {
+    @extend %heading-base;
+    font-size: $font-size-lg;
+  }
+  
+  // -- Placeholder for Typography --
+  %text-base {
+    font-family: $font-family-primary;
+    font-size: $font-size-md;
+    line-height: $line-height-md;
+    color: $theme-light-text;
+  }
+  
+  %text-muted {
+    @extend %text-base;
+    color: $gray-600;
+  }
+  
+  %text-muted-light {
+    @extend %text-base;
+    color: $gray-400;
+  }
+  
+  %text-bold {
+    @extend %text-base;
+    font-weight: $font-weight-bold;
+  }
+  
+  %text-center {
+    text-align: center;
+  }
+  
+  %text-right {
+    text-align: right;
+  }
+  
+  %text-left {
+    text-align: left;
+  }
+  
+  // -- Layout Placeholders --
+  %container-base {
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 $space-md;
+  }
+  
+  %flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  %flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  %flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  // -- Alert Styles --
+  %alert-base {
+    padding: $space-sm $space-md;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-sm;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+  }
+  
+  %alert-success {
+    @extend %alert-base;
+    background-color: #dff0d8;
+    color: #3c763d;
+    border-color: #d0e9c6;
+  }
+  
+  %alert-warning {
+    @extend %alert-base;
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+    border-color: #faebcc;
+  }
+  
+  %alert-danger {
+    @extend %alert-base;
+    background-color: #f2dede;
+    color: #a94442;
+    border-color: #ebccd1;
+  }
+  
+  // -- Miscellaneous Placeholders --
+  %visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+  }
+  
+  // Center an element with absolute positioning
+  %center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
