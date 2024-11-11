@@ -186,5 +186,27 @@ button {
 /* 9.1. Add custom base styling */
 body {
     line-height: 1.6;
-    color: #333;
+}
+/* Normalize default styles */
+section,
+article {
+    margin: 0;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+}
+
+/* Reset specific styles for section and article */
+section,
+article {
+    background: none;
+    border: none;
+    font-size: inherit; 
+}
+
+section,
+article {
+
+    margin: 0;
+    padding: 0;
 }
