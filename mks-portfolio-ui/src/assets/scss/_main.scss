@@ -4,6 +4,8 @@
 @import 'base/normalize';
 @import 'base/reset';
 
-html, body {
-    background: $mks-secondary-500;
+:root {
+    background: $mks-secondary-700;
+    font-family: 'Host Grotesk', sans-serif;
+    font-size: 18px;
 }
