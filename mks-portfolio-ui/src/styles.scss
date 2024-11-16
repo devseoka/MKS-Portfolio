@@ -5,9 +5,9 @@ html, body {
     height: 100%;
 }
 body {
-    display: block; /* Allow natural stacking of content */
+    display: block;
     width: 100%;
-    height: auto; /* Let the body expand based on content */
+    height: auto;
     max-width: 1360px;
     margin: 0 auto;
     background-color: $mks-secondary-900;
@@ -40,4 +40,9 @@ body::-webkit-scrollbar-thumb:hover {
 body::-webkit-scrollbar-track {
     background: $mks-primary-300;
     border-radius: 4px;
+}
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: $mks-primary-500;
 }
