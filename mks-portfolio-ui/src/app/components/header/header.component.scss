@@ -6,15 +6,18 @@ section {
     gap: 20px; 
     align-items: center;
     justify-items: center;
-
+    padding: 40px 20px; /* Add padding for spacing */
+    min-height: 100vh; /* Change height to min-height */
+    
     article {
         width: 100%;
-
+        
         h1 {
             font-size: 1.875rem;
             line-height: 1.2;
             text-transform: capitalize;
             padding-bottom: 1rem;
+
             span {
                 color: $mks-primary-500;
             }
@@ -40,9 +43,11 @@ section {
         article {
             width: 100%;
             margin: 0;
+
             h1 {
                 font-size: 1.5rem;
             }
+
             h4 {
                 font-size: 0.875rem;
             }
