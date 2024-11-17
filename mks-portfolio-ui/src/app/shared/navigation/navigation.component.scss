@@ -1,0 +1,103 @@
+@import '../../../assets/scss/abstracts/variable';
+
+nav {
+    background-color: $mks-secondary-900;
+    box-shadow: 0px 2px 5px darken($mks-primary-500, 10%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+
+    .logo {
+        flex: 2;
+        text-decoration: none;
+        cursor: pointer;
+        height: 60px;
+        svg{
+            height: 100%;
+            fill: $mks-primary-400;
+         }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex: 6;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        
+        li {
+            text-align: center;
+            margin: 0 42px;
+            a {
+                text-decoration: none;
+
+            }
+        }
+
+        &.open {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        svg {
+            fill: $mks-primary-500;
+            height: 60px;
+        }
+    }
+
+    button {
+        background-color: $mks-primary-500;
+        color: $mks-primary-50;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        ul {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: $mks-secondary-900;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .hamburger {
+            display: block;
+        }
+
+        .hamburger.open + ul {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+        }
+        button {
+            display: none;
+        }
+    }
+}
