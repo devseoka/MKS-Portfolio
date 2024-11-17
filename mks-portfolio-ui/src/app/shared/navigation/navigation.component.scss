@@ -17,10 +17,11 @@ nav {
         text-decoration: none;
         cursor: pointer;
         height: 60px;
-        svg{
+
+        svg {
             height: 100%;
             fill: $mks-primary-400;
-         }
+        }
     }
 
     ul {
@@ -31,13 +32,23 @@ nav {
         justify-content: center;
         flex: 6;
         transition: opacity 0.5s ease, visibility 0.5s ease;
-        
+
         li {
             text-align: center;
             margin: 0 42px;
+            padding:8px 0;
             a {
                 text-decoration: none;
 
+                &:hover {
+                    color: $mks-primary-500;
+                    font-weight: 600;
+                }
+            }
+            &.active {
+                border-bottom: 2px solid $mks-primary-400; 
+                color: $mks-primary-400;  
+                font-weight: 600;
             }
         }
 
@@ -54,6 +65,7 @@ nav {
         position: absolute;
         right: 20px;
         top: 20px;
+
         svg {
             fill: $mks-primary-500;
             height: 60px;
@@ -85,17 +97,37 @@ nav {
             z-index: 998;
             opacity: 0;
             visibility: hidden;
+
+            li {
+                width: 100%;
+                padding: 24px 0;
+                text-align: center;
+                border-bottom: 1px solid $mks-secondary-800;
+
+                &:last-child {
+                    border: none;
+                    a {
+                        display: block;
+                        padding: 10px 16px;
+                        background: $mks-primary-500;
+                        cursor: pointer;
+                        text-align: center;
+
+                    }
+                }
+            }
         }
 
         .hamburger {
             display: block;
         }
 
-        .hamburger.open + ul {
+        .hamburger.open+ul {
             display: flex;
             opacity: 1;
             visibility: visible;
         }
+
         button {
             display: none;
         }
