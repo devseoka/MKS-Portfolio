@@ -1,11 +1,14 @@
-import { Component, HostListener } from "@angular/core";
+import { Component, HostListener, OnInit } from "@angular/core";
 
 @Component({
     selector: 'app-navigation',
     templateUrl: './navigation.component.html',
     styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
+    ngOnInit(): void {
+        this.checkScreenSize()
+    }
     isOpen: boolean = false
     isMobile: boolean = window.innerWidth <= 768;
     activeLink: string = 'banner'
@@ -20,6 +23,10 @@ export class NavigationComponent {
     }
     @HostListener('window:resize', ['$event'])
     onResize(event: Event): void {
-        this.isMobile = window.innerWidth <= 768;
+        this.checkScreenSize()
     }
+    checkScreenSize() {
+        this.isMobile = window.innerWidth < 768;
+    }
+
 }

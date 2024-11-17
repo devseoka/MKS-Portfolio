@@ -17,17 +17,17 @@
     </div>
 
     <ul id="nav-links" (click)="setActiveLink(activeLink)" [class.open]="isOpen">
-        <li>
-            <a [class.active]="activeLink === 'about'" (click)="setActiveLink('about')" href="#about">About</a>
+        <li [class.active]="activeLink === 'about'" >
+            <a (click)="setActiveLink('about')" href="#about">About</a>
         </li>
-        <li>
-            <a [class.active]="activeLink === 'skills'" (click)="setActiveLink('skills')" href="#skills">Skills</a>
+        <li [class.active]="activeLink === 'skills'">
+            <a  (click)="setActiveLink('skills')" href="#skills">Skills</a>
         </li>
-        <li>
-            <a [class.active]="activeLink === 'contact'"(click)="setActiveLink('contact')"  href="#contact">Contact</a>
+        <li [class.active]="activeLink === 'contact'">
+            <a  (click)="setActiveLink('contact')" href="#contact">Contact</a>
         </li>
         <li *ngIf="isMobile">
-            <a href="#skills">Skills</a>
+            <a (click)="onDownload()">Download Resume</a>
         </li>
     </ul>
 
