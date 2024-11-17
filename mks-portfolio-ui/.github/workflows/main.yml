@@ -1,4 +1,4 @@
-name: Format Codebase And Deploy Portfolio To Firebase
+name: CI/CD
 
 on:
   push:
@@ -18,31 +18,38 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      # Step 2: Set up Node.js (latest stable version)
+      # Step 2: Navigate to the correct working directory
+      - name: Change Directory
+        run: cd mks-portfolio-ui  # Adjust this path based on your repository structure
+
+      # Step 3: Set up Node.js (latest stable version)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 'stable'  # Use the latest stable version of Node.js
 
-      # Step 3: Install Dependencies
+      # Step 4: Install Dependencies
       - name: Install Dependencies
+        working-directory: mks-portfolio-ui  # Ensure commands run in the correct directory
         run: npm install
 
-      # Step 4: Lint and Prettify
+      # Step 5: Lint and Prettify
       - name: Lint and Format Code
+        working-directory: mks-portfolio-ui
         run: |
           npm run lint:fix  # Fix linting issues
           npm run prettier  # Format the code
 
-      # Step 5: Build the Angular App
+      # Step 6: Build the Angular App
       - name: Build Angular App
+        working-directory: mks-portfolio-ui
         run: npm run build --prod
 
-      # Step 6: Deploy to Firebase Hosting
+      # Step 7: Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
         uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_CREDENTIALS }}
           groups: testers
-          file: dist/mks-portfolio-ui
+          file: dist/mks-portfolio-ui  # Adjust this to match your `dist` output folder
