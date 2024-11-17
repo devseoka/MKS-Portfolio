@@ -17,39 +17,32 @@ jobs:
       # Step 1: Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v2
-
-      # Step 2: Navigate to the correct working directory
-      - name: Change Directory
-        run: cd mks-portfolio-ui  # Adjust this path based on your repository structure
-
-      # Step 3: Set up Node.js (latest stable version)
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
         with:
-          node-version: 'stable'  # Use the latest stable version of Node.js
+          persist-credentials: false  # Disable default credentials persisting
 
-      # Step 4: Install Dependencies
+      # Step 2: Set up Git with PAT for authentication
+      - name: Configure Git for Authentication
+        run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
+
+      # Step 3: Set up Node.js (Node.js 12.x)
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'  # Use Node.js 12.x
+
+      # Step 4: Install Dependencies (Clean Install)
       - name: Install Dependencies
-        working-directory: mks-portfolio-ui  # Ensure commands run in the correct directory
-        run: npm install
+        run: npm ci  # Clean install to ensure consistent builds
 
-      # Step 5: Lint and Prettify
-      - name: Lint and Format Code
-        working-directory: mks-portfolio-ui
-        run: |
-          npm run lint:fix  # Fix linting issues
-          npm run prettier  # Format the code
-
-      # Step 6: Build the Angular App
+      # Step 5: Build the Angular App
       - name: Build Angular App
-        working-directory: mks-portfolio-ui
         run: npm run build --prod
 
-      # Step 7: Deploy to Firebase Hosting
+      # Step 6: Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
         uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_CREDENTIALS }}
           groups: testers
-          file: dist/mks-portfolio-ui  # Adjust this to match your `dist` output folder
+          file: dist/mks-portfolio-ui  # Path to your built app
