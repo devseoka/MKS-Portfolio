@@ -4,8 +4,8 @@ section {
     display: grid;
     grid-template-columns: 1fr 4fr;
     gap: 2rem;
-    transition: all 0.3s ease-in-out; // Smooth transition for layout changes
-
+    transition: all 0.3s ease-in-out; 
+    height: fit-content;
     hr {
         border: none;
         width: 100%;
