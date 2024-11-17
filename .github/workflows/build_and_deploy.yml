@@ -1,0 +1,48 @@
+name: Lint, Prettier, and Build
+
+on:
+  push:
+    branches:
+      - '*MWP*'  # Trigger on branches containing 'MWP'
+  pull_request:
+    branches:
+      - 'develop'  # Trigger on pull request to the 'develop' branch
+
+jobs:
+  lint_and_build:
+    runs-on: ubuntu-latest  # The machine type to run the job on
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3  # Checkout the code
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'  # Using Node.js version 18
+
+    - name: Install dependencies (Node.js)
+      run: |
+        npm install  # Install Node.js dependencies
+
+    - name: Lint HTML and Prettier
+      run: |
+        npm run lint:fix  # Run lint and auto-fix issues
+        npm run prettier  # Run Prettier to format the code
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.x'  # Specify the .NET version you're using (now .NET 6)
+
+    - name: Install dependencies for .NET solution
+      run: |
+        dotnet restore  # Restore the NuGet packages for the .NET project
+
+    - name: Build solution
+      run: |
+        dotnet build  # Build the .NET solution
+
+    - name: Run tests
+      run: |
+        dotnet test  # Run tests for the .NET solution (optional but recommended)
