@@ -47,8 +47,7 @@ section {
         filter: grayscale(100%);
         mix-blend-mode: overlay;
         transition: filter 0.3s ease;
-        z-index: 0; // Ensure the image stays behind the article text
-
+        z-index: 0;
         &:hover {
             filter: grayscale(0%);
         }
