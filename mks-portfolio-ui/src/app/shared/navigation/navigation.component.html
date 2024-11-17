@@ -16,12 +16,20 @@
         </svg>
     </div>
 
-    <ul id="nav-links"  [class.open]="isOpen">
-        <li><a href="#banner">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a (click)="onDownload()" *ngIf="isOpen">Download Resume</a></li>
+    <ul id="nav-links" (click)="setActiveLink(activeLink)" [class.open]="isOpen">
+        <li>
+            <a [class.active]="activeLink === 'about'" (click)="setActiveLink('about')" href="#about">About</a>
+        </li>
+        <li>
+            <a [class.active]="activeLink === 'skills'" (click)="setActiveLink('skills')" href="#skills">Skills</a>
+        </li>
+        <li>
+            <a [class.active]="activeLink === 'contact'"(click)="setActiveLink('contact')"  href="#contact">Contact</a>
+        </li>
+        <li *ngIf="isMobile">
+            <a href="#skills">Skills</a>
+        </li>
     </ul>
+
     <button type="button" (click)="onDownload()">Download Resume</button>
 </nav>
