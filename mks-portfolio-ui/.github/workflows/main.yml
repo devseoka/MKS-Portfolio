@@ -1,0 +1,48 @@
+name: Format Codebase And Deploy Portfolio To Firebase
+
+on:
+  push:
+    branches:
+      - develop
+      - '*MWP*'  # Trigger for branches containing 'MWP'
+  pull_request:
+    branches:
+      - develop  # Trigger on pull request targeting 'develop'
+
+jobs:
+  # Build and Deploy Job
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js (latest stable version)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'stable'  # Use the latest stable version of Node.js
+
+      # Step 3: Install Dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Step 4: Lint and Prettify
+      - name: Lint and Format Code
+        run: |
+          npm run lint:fix  # Fix linting issues
+          npm run prettier  # Format the code
+
+      # Step 5: Build the Angular App
+      - name: Build Angular App
+        run: npm run build --prod
+
+      # Step 6: Deploy to Firebase Hosting
+      - name: Deploy to Firebase Hosting
+        uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_CREDENTIALS }}
+          groups: testers
+          file: dist/mks-portfolio-ui
