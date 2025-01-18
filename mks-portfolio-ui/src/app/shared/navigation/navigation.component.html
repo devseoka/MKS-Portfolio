@@ -17,14 +17,14 @@
     </div>
 
     <ul id="nav-links" (click)="setActiveLink(activeLink)" [class.open]="isOpen">
-        <li [class.active]="activeLink === 'about'" >
+        <li [class.active]="activeLink === 'about'">
             <a (click)="setActiveLink('about')" href="#about">About</a>
         </li>
         <li [class.active]="activeLink === 'skills'">
-            <a  (click)="setActiveLink('skills')" href="#skills">Skills</a>
+            <a (click)="setActiveLink('skills')" href="#skills">Skills</a>
         </li>
         <li [class.active]="activeLink === 'contact'">
-            <a  (click)="setActiveLink('contact')" href="#contact">Contact</a>
+            <a (click)="setActiveLink('contact')" href="#contact">Contact</a>
         </li>
         <li *ngIf="isMobile">
             <a (click)="onDownload()">Download Resume</a>

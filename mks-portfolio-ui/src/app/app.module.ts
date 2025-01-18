@@ -10,6 +10,9 @@ import { AboutComponent } from '@components/about/about.component';
 import { skillsComponent } from '@components/experience/skills.component';
 import { ContactComponent } from '@components/contact/contact.component';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { DownloadCvComponent } from './shared/modals/download-cv/download-cv.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,15 @@ import { SharedModule } from './shared/shared.module';
     HomeComponent,
     AboutComponent,
     skillsComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
