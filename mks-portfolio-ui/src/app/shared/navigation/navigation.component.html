@@ -10,8 +10,8 @@
     <!-- Hamburger icon for mobile -->
     <div class="hamburger" id="hamburger-icon" (click)="onOpen()" (keydown.enter)="onOpen()" tabindex="0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path
+            <path fill="none" d="M0 0h24v24H0z"  tabindex="0"/>
+            <path tabindex="0"
                 d="M4 6h16c.553 0 1 .447 1 1s-.447 1-1-1H4c-.553 0-1-.447-1-1s.447-1 1-1zm0 5h16c.553 0 1 .447 1 1s-.447 1-1-1H4c-.553 0-1-.447-1-1s.447-1 1-1zm0 5h16c.553 0 1 .447 1 1s-.447 1-1-1H4c-.553 0-1-.447-1-1s.447-1 1-1z" />
         </svg>
     </div>
@@ -27,7 +27,7 @@
             <a (click)="setActiveLink('contact')" (keydown.enter)="setActiveLink('contact')" href="#contact">Contact</a>
         </li>
         <li *ngIf="isMobile">
-            <a (click)="onDownload()" (keydown.enter)="onDownload()">Download Resume</a>
+            <a (click)="onDownload()" (keydown.enter)="onDownload()" tabindex="0">Download Resume</a>
         </li>
     </ul>
 
