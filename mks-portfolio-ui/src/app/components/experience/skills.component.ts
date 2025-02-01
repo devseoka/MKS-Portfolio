@@ -1,13 +1,20 @@
+import { animate, style, transition, trigger } from "@angular/animations";
 import { Component } from "@angular/core";
-import { fadeInDownAnimation, fadeOutUpAnimation } from "angular-animations";
-
 @Component({
     selector: 'app-skills',
     templateUrl: './skills.component.html',
     styleUrls: ['./skills.component.scss'],
     animations: [
-        fadeInDownAnimation({ anchor: 'enter', duration: 1000, delay: 100, translate: '30px' }),
-        fadeOutUpAnimation({ anchor: 'leave', duration: 500, delay: 200, translate: '40px' })]
+        trigger('fadeInOut', [
+          transition(':enter', [
+            style({ opacity: 0, transform: 'translateY(50px)' }),
+            animate('500ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))
+          ]),
+          transition(':leave', [
+            animate('500ms ease-out', style({ opacity: 0, transform: 'translateY(50px)' }))
+          ])
+        ])
+      ]
 })
 export class skillsComponent {
     
