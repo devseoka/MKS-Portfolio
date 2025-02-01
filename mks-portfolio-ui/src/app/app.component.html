@@ -1,2 +1,3 @@
-<app-navigation></app-navigation>
+<app-navigation (onModalChanged)="onOpen($event)"></app-navigation>
 <router-outlet></router-outlet>
+<app-download-cv [isOpen]="isOpen"></app-download-cv>

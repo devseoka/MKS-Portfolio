@@ -1,0 +1,39 @@
+<ng-container *ngIf="isOpen">
+    <div id="overlay" class="overlay"></div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Download Resume</h2>
+                <button (click)="close()" class="close-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Form -->
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <!-- Name Input -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" formControlName="name" class="input-field" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" formControlName="email" class="input-field" />
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Thank you for your interest! To protect my professional information, please provide your name and email before accessing my resume. This ensures that only verified recruiters and clients can view my qualifications.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" [disabled]="form.invalid" class="submit-button full-width-button">
+                        I am ready to download.
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-container>

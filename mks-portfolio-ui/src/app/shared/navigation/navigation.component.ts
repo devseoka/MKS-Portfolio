@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from "@angular/core";
+import { Component, EventEmitter, HostListener, OnInit, Output } from "@angular/core";
 
 @Component({
     selector: 'app-navigation',
@@ -6,13 +6,19 @@ import { Component, HostListener, OnInit } from "@angular/core";
     styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-    ngOnInit(): void {
-        this.checkScreenSize()
-    }
+
+    @Output() onModalChanged: EventEmitter<boolean> = new EventEmitter<boolean>()
+    
+    isModalOpen: boolean = false
     isOpen: boolean = false
     isMobile: boolean = window.innerWidth <= 768;
     activeLink: string = 'banner'
+
+    ngOnInit(): void {
+        this.checkScreenSize()
+    }
     onDownload() {
+       this.onModalChanged.emit(!this.isModalOpen)
     }
     onOpen() {
         this.isOpen = !this.isOpen
@@ -27,6 +33,9 @@ export class NavigationComponent implements OnInit {
     }
     checkScreenSize() {
         this.isMobile = window.innerWidth < 768;
+    }
+    onModalStatus(status: boolean){
+       this.isModalOpen = status
     }
 
 }
