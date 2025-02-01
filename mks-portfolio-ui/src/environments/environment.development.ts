@@ -1,5 +1,5 @@
 export const environment = {
     api: 'https://localhost:7003/api',
-    key: 'MKS-1737202050-7ZM42PEH-RKA18FGM',
+    key: 'MKS-1738445181-IMZLJ4KK-7E890F4L',
     name: 'Moshele Seoka-NET Full Stack Developer'
 };
