@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
     const clonedRequest = req.clone({
       setHeaders: {
         'X-API-Key': `${environment.key}`,

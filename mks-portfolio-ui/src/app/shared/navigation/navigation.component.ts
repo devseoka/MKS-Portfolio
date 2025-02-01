@@ -7,7 +7,7 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from "@angular/
 })
 export class NavigationComponent implements OnInit {
 
-    @Output() onModalChanged: EventEmitter<boolean> = new EventEmitter<boolean>()
+    @Output() modalChanged: EventEmitter<boolean> = new EventEmitter<boolean>()
     
     isModalOpen: boolean = false
     isOpen: boolean = false
@@ -18,7 +18,7 @@ export class NavigationComponent implements OnInit {
         this.checkScreenSize()
     }
     onDownload() {
-       this.onModalChanged.emit(!this.isModalOpen)
+       this.modalChanged.emit(!this.isModalOpen)
     }
     onOpen() {
         this.isOpen = !this.isOpen
