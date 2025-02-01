@@ -1,41 +1,19 @@
-name: Moshele Seoka's Portfolio - Quality & Deploy
-
-on:
-  push:
-    branches: [develop]
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches: [develop]
-
-env:
-  NODE_VERSION: '18'
-  APP_LOCATION: '/mks-portfolio-ui'
-  OUTPUT_LOCATION: 'dist/mks-portfolio-ui'
-
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         working-directory: ${{ env.APP_LOCATION }}
-        
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-            
+
       - name: Run ESLint
         run: npm run lint:fix
         working-directory: ${{ env.APP_LOCATION }}
@@ -44,25 +22,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         working-directory: ${{ env.APP_LOCATION }}
-        
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-            
+
       - name: Run Prettier
         run: npm run prettier
         working-directory: ${{ env.APP_LOCATION }}
@@ -75,18 +45,18 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-          
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         working-directory: ${{ env.APP_LOCATION }}
-        
-      - name: Build And Deploy
+
+      - name: Build and Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
