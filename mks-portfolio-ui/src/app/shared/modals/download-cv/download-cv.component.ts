@@ -44,13 +44,6 @@ export class DownloadCvComponent implements OnChanges {
                 window.URL.revokeObjectURL(url);
                 this.close()
 
-            },
-            complete: () => {
-            },
-            error: (e: HttpErrorResponse) => {
-                if (Array.isArray(e.error.errors)) {
-                    const errors = e.error.errors;
-                }
             }
         })
     }
