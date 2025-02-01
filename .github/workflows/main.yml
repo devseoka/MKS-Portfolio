@@ -1,0 +1,69 @@
+name: Moshele Seoka's Portfolio Build And Deploy CI/CD
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - develop
+
+jobs:
+  lint_and_format:
+    runs-on: ubuntu-latest  # The machine type to run the job on
+    name: Lint and Format Code
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Checkout the code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Using Node.js version 18
+
+      - name: Install dependencies (Node.js)
+        run: |
+          cd mks-portfolio-ui  # Navigate to the mks-portfolio-ui directory
+          npm install  # Install Node.js dependencies
+
+      - name: Lint HTML and Prettier
+        run: |
+          cd mks-portfolio-ui  # Navigate to the mks-portfolio-ui directory
+          npm run lint:fix  # Run lint and auto-fix issues
+          npm run prettier  # Run Prettier to format the code
+
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Application
+    needs: lint_and_format  # This ensures linting and formatting runs before the deployment
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          lfs: false
+      - name: Build and Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROUD_WATER_036754003 }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          app_location: "/mks-portfolio-ui" # App source code path
+          api_location: "" # Api source code path - optional
+          output_location: "dist/mks-portfolio-ui" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROUD_WATER_036754003 }}
+          action: "close"
