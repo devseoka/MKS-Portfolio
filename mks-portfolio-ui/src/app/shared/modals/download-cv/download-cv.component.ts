@@ -20,9 +20,8 @@ export class DownloadCvComponent implements OnChanges {
         })
       }
     ngOnChanges(changes: SimpleChanges): void {
-        const statusObj = changes['isOpen'].currentValue
+        const statusObj: unknown = changes['isOpen'].currentValue
         if (statusObj) {
-            console.log(`the status for opening model is =>`, statusObj)
             this.isOpen = statusObj as boolean
         }
     }
