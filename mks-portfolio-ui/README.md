@@ -53,19 +53,19 @@ To run or contribute to the project, follow the steps below:
 
 ### 1. Clone this repository
 
-   ```bash
-   git clone https://github.com/seokamoshele/MKS-Portofilio.git
-   ```
+```bash
+git clone https://github.com/seokamoshele/MKS-Portofilio.git
+```
 
 ### 2. Change Directory
 
-   ```bash
-   cd MKS-Portfolio
-   cd mks-portfolio-ui
-   ```
+```bash
+cd MKS-Portfolio
+cd mks-portfolio-ui
+```
 
 ### 3. Run The Application
 
- ```bash
-   ng serve -o
-   ```
+```bash
+  ng serve -o
+```

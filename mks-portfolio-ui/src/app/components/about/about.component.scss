@@ -16,7 +16,6 @@ section {
   }
 
   article {
-
     p {
       font-size: 1rem;
       font-weight: 300;
@@ -44,7 +43,6 @@ section {
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 0.875rem;
-
 
     hr {
       margin: 1rem 0;

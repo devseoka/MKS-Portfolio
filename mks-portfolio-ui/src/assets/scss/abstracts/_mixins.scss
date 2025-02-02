@@ -1,6 +1,6 @@
-
 @mixin bg-mks-primary($shade) {
-    background-color: map-get((
+  background-color: map-get(
+    (
       50: $mks-primary-50,
       100: $mks-primary-100,
       200: $mks-primary-200,
@@ -10,11 +10,14 @@
       600: $mks-primary-600,
       700: $mks-primary-700,
       800: $mks-primary-800,
-      900: $mks-primary-900
-    ), $shade);
-  }
-  @mixin bg-mks-secondary($shade) {
-    background-color: map-get((
+      900: $mks-primary-900,
+    ),
+    $shade
+  );
+}
+@mixin bg-mks-secondary($shade) {
+  background-color: map-get(
+    (
       50: $mks-secondary-50,
       100: $mks-secondary-100,
       200: $mks-secondary-200,
@@ -24,31 +27,31 @@
       600: $mks-secondary-600,
       700: $mks-secondary-700,
       800: $mks-secondary-800,
-      900: $mks-secondary-900
-    ), $shade);
+      900: $mks-secondary-900,
+    ),
+    $shade
+  );
+}
+
+@mixin media-query($size) {
+  @if $size == 'sm' {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $size == 'md' {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $size == 'lg' {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
   }
-  
-  @mixin media-query($size) {
-    @if $size == 'sm' {
-      @media (max-width: $breakpoint-sm) {
-        @content;
-      }
-    }
-    @else if $size == 'md' {
-      @media (max-width: $breakpoint-md) {
-        @content;
-      }
-    }
-    @else if $size == 'lg' {
-      @media (max-width: $breakpoint-lg) {
-        @content;
-      }
-    }
-  }
-  // _mixins.scss
+}
+// _mixins.scss
 
 // Primary Color Variable (example)
-$primary-color: #ef4028;  // Example primary color
+$primary-color: #ef4028; // Example primary color
 
 // 1. Box Shadow Mixin using $primary-color
 @mixin box-shadow-primary($x: 0px, $y: 4px, $blur: 6px, $opacity: 0.2) {
@@ -126,13 +129,11 @@ $primary-color: #ef4028;  // Example primary color
     @media (max-width: 576px) {
       @content;
     }
-  }
-  @else if $size == 'md' {
+  } @else if $size == 'md' {
     @media (max-width: 768px) {
       @content;
     }
-  }
-  @else if $size == 'lg' {
+  } @else if $size == 'lg' {
     @media (max-width: 1024px) {
       @content;
     }
@@ -140,7 +141,13 @@ $primary-color: #ef4028;  // Example primary color
 }
 
 // 12. Typography Styles Mixin
-@mixin typography($font-size, $font-weight: normal, $line-height: 1.5, $font-family: 'Arial', $color: #333) {
+@mixin typography(
+  $font-size,
+  $font-weight: normal,
+  $line-height: 1.5,
+  $font-family: 'Arial',
+  $color: #333
+) {
   font-size: $font-size;
   font-weight: $font-weight;
   line-height: $line-height;
@@ -161,18 +168,15 @@ $primary-color: #ef4028;  // Example primary color
     @media (max-width: 576px) {
       @content;
     }
-  }
-  @else if $breakpoint == 'md' {
+  } @else if $breakpoint == 'md' {
     @media (max-width: 768px) {
       @content;
     }
-  }
-  @else if $breakpoint == 'lg' {
+  } @else if $breakpoint == 'lg' {
     @media (max-width: 1024px) {
       @content;
     }
-  }
-  @else {
+  } @else {
     @warn "Breakpoint #{$breakpoint} not defined.";
   }
 }

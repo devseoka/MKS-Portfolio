@@ -29,11 +29,11 @@ import { authInterceptor } from '@helpers/api-auth.interceptor';
     SharedModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [provideHttpClient(
     withInterceptors([authInterceptor]) 
   )],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,13 +6,13 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    data: { title: 'Seoka Moshele – Full-Stack Developer | C# & Angular Intermediate Developer' }
+    data: { title: 'Seoka Moshele – Full-Stack Developer | C# & Angular Intermediate Developer' },
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
