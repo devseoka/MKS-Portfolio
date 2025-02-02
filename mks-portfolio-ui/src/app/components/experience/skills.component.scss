@@ -17,13 +17,12 @@ section {
   }
 
   article {
-
     h2 {
       font-size: 2rem;
 
       @media (max-width: 64em) {
         font-size: 1.7rem;
-        line-height: 1.0;
+        line-height: 1;
         margin: 24px 0;
       }
     }
@@ -69,7 +68,6 @@ section {
         }
       }
     }
-
   }
 
   @media (max-width: 48em) {

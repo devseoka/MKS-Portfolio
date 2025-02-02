@@ -10,111 +10,111 @@ $button-hover-bg: #0056b3;
 $input-padding: 0.675rem; // Padding for input fields
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: $modal-bg;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $modal-bg;
+  z-index: 1000;
 }
 
 .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: $modal-width;
-    background: $modal-color;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1001;
-    padding: $modal-padding;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $modal-width;
+  background: $modal-color;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  padding: $modal-padding;
+  display: flex;
+  flex-direction: column;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+
+    h2 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .close-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: #333;
+      }
+    }
+  }
+
+  .modal-body {
+    font-size: 1rem;
+    margin-bottom: 20px;
+
+    p {
+      margin: 0;
+      line-height: 1.5;
+      font-size: 0.675rem;
+      color: $mks-secondary-900;
+    }
+  }
+
+  .modal-content {
     display: flex;
     flex-direction: column;
+    padding: $modal-padding;
 
-    .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 10px;
+    .form-group {
+      margin-bottom: 20px;
 
-        h2 {
-            margin: 0;
-            font-size: 1.8rem;
-        }
+      label {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: $mks-primary-500;
+      }
 
-        .close-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-
-            svg {
-                width: 24px;
-                height: 24px;
-                color: #333;
-            }
-        }
+      .input-field {
+        width: 100%;
+        padding: $input-padding;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
     }
+  }
 
-    .modal-body {
-        font-size: 1rem;
-        margin-bottom: 20px;
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
 
-        p {
-            margin: 0;
-            line-height: 1.5;
-            font-size: 0.675rem;
-            color: $mks-secondary-900;
-        }
+    .submit-button {
+      padding: 10px 20px;
+      background-color: $mks-primary-500;
+      color: $button-color;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: #ccc;
+      }
+
+      &:hover {
+        background-color: $button-hover-bg;
+      }
     }
-
-    .modal-content {
-        display: flex;
-        flex-direction: column;
-        padding: $modal-padding;
-
-        .form-group {
-            margin-bottom: 20px;
-
-            label {
-                font-size: 16px;
-                font-weight: bold;
-                margin-bottom: 5px;
-                color: $mks-primary-500;
-            }
-
-            .input-field {
-                width: 100%;
-                padding: $input-padding;
-                font-size: 14px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-            }
-        }
-    }
-
-    .modal-footer {
-        display: flex;
-        justify-content: flex-end;
-
-        .submit-button {
-            padding: 10px 20px;
-            background-color: $mks-primary-500;
-            color: $button-color;
-            border: none;
-            border-radius: 4px;
-            width: 100%;
-            cursor: pointer;
-
-            &:disabled {
-                background-color: #ccc;
-            }
-
-            &:hover {
-                background-color: $button-hover-bg;
-            }
-        }
-    }
+  }
 }

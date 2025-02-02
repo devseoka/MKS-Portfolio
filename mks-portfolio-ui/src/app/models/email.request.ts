@@ -1,4 +1,4 @@
 export interface EmailRequest {
-    name: string
-    email: string
+  name: string;
+  email: string;
 }

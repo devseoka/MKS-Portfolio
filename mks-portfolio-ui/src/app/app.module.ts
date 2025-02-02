@@ -11,7 +11,6 @@ import { skillsComponent } from '@components/experience/skills.component';
 import { ContactComponent } from '@components/contact/contact.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-import { DownloadCvComponent } from './shared/modals/download-cv/download-cv.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -29,9 +28,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

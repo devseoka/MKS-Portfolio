@@ -39,17 +39,32 @@ body {
    ========================================================================== */
 
 /* 2.1. Style HTML5 elements as block-level by default */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
   display: block;
 }
 
 /* 2.2. Allow certain elements to take up the full width of their container */
-audio, canvas, video {
+audio,
+canvas,
+video {
   display: inline-block;
 }
 
 /* 2.3. Normalize default styling of list items */
-ol, ul {
+ol,
+ul {
   list-style: none;
   padding-left: 0;
 }
@@ -59,14 +74,18 @@ ol, ul {
    ========================================================================== */
 
 /* 3.1. Remove default styling from form controls */
-input, select, textarea, button {
+input,
+select,
+textarea,
+button {
   font: inherit;
   color: inherit;
   line-height: inherit;
 }
 
 /* 3.2. Remove padding and border from input elements */
-input, textarea {
+input,
+textarea {
   padding: 0;
   border: none;
   outline: none;
@@ -84,7 +103,10 @@ button {
 }
 
 /* 3.4. Remove default outline from form elements on focus */
-input:focus, select:focus, textarea:focus, button:focus {
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
   outline: none;
 }
 
@@ -121,7 +143,8 @@ table {
 }
 
 /* 6.2. Normalize table cell padding and border */
-th, td {
+th,
+td {
   padding: 0;
   text-align: left;
 }
@@ -153,7 +176,10 @@ img {
 }
 
 /* 8.2. Improve touch target size for mobile */
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

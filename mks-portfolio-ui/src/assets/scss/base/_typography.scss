@@ -88,7 +88,12 @@ body {
 }
 
 // Headings - using mixins to apply typography settings
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @include font-family($heading-font-family);
   @include font-weight($heading-font-weight);
   margin: 0;
@@ -140,15 +145,22 @@ a {
 }
 
 // Links
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $heading-font-family;
 }
 
-strong, b {
+strong,
+b {
   font-weight: bold;
 }
 
-em, i {
+em,
+i {
   font-style: italic;
 }
 
@@ -156,7 +168,8 @@ small {
   font-size: $font-size-xs;
 }
 
-code, pre {
+code,
+pre {
   font-family: $font-family-monospace;
 }
 

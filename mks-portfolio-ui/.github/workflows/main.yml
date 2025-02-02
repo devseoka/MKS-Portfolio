@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - develop
-      - '*MWP*'  # Trigger for branches containing 'MWP'
+      - '*MWP*' # Trigger for branches containing 'MWP'
   pull_request:
     branches:
-      - develop  # Trigger on pull request targeting 'develop'
+      - develop # Trigger on pull request targeting 'develop'
 
 jobs:
   # Build and Deploy Job
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          persist-credentials: false  # Disable default credentials persisting
+          persist-credentials: false # Disable default credentials persisting
 
       # Step 2: Set up Git with PAT for authentication
       - name: Configure Git for Authentication
@@ -28,11 +28,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'  # Use Node.js 12.x
+          node-version: '12.x' # Use Node.js 12.x
 
       # Step 4: Install Dependencies (Clean Install)
       - name: Install Dependencies
-        run: npm ci  # Clean install to ensure consistent builds
+        run: npm ci # Clean install to ensure consistent builds
 
       # Step 5: Build the Angular App
       - name: Build Angular App
@@ -45,4 +45,4 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_CREDENTIALS }}
           groups: testers
-          file: dist/mks-portfolio-ui  # Path to your built app
+          file: dist/mks-portfolio-ui # Path to your built app
