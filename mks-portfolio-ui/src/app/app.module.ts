@@ -10,8 +10,9 @@ import { AboutComponent } from '@components/about/about.component';
 import { skillsComponent } from '@components/experience/skills.component';
 import { ContactComponent } from '@components/contact/contact.component';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { authInterceptor } from '@helpers/api-auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [provideHttpClient(
+    withInterceptors([authInterceptor]) 
+  )],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

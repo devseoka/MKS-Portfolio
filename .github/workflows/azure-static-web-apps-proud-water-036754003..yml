@@ -1,0 +1,86 @@
+name: Moshele Seoka's Portfolio Build And Deploy CI/CD
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - develop
+
+jobs:
+  lint_and_format:
+    runs-on: ubuntu-latest
+    name: Lint and Format Code
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Checkout the code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Using Node.js version 18
+
+      - name: Install dependencies (Node.js)
+        run: |
+          cd mks-portfolio-ui  # Navigate to the mks-portfolio-ui directory
+          npm install  # Install Node.js dependencies
+
+      - name: Lint and Format Code
+        run: |
+          cd mks-portfolio-ui  # Navigate to the mks-portfolio-ui directory
+          npm run lint:fix  # Run lint and auto-fix issues
+          npm run prettier  # Run Prettier to format the code
+
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Application
+    needs: lint_and_format  # Ensure linting and formatting runs before deployment
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          lfs: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Using Node.js version 18
+
+      - name: Install dependencies (Node.js)
+        run: |
+          cd mks-portfolio-ui  # Navigate to the mks-portfolio-ui directory
+          npm install  # Install Node.js dependencies
+
+      - name: Build Application
+        run: |
+          cd mks-portfolio-ui  # Navigate to the mks-portfolio-ui directory
+          npm run build  # Build the application
+
+      - name: Deploy to Azure Static Web Apps
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROUD_WATER_036754003 }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}  # Used for GitHub integrations (e.g., PR comments)
+          action: "upload"
+          app_location: "/mks-portfolio-ui"  # App source code path
+          output_location: "dist/mks-portfolio-ui"  # Built app content directory
+
+  close_pull_request:
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    needs: build_and_deploy
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROUD_WATER_036754003 }}
+          action: "close"
