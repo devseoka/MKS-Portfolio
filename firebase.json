@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/mks-portfolio-ui",
+    "public": "./mks-portfolio-ui/dist/mks-portfolio-ui",
     "ignore": [
       "firebase.json",
       "**/.*",
