@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { authInterceptor } from '@helpers/api-auth.interceptor';
+import { ServiceUnavailableComponent } from '@components/service-unavailable/service-unavailable.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { authInterceptor } from '@helpers/api-auth.interceptor';
     AboutComponent,
     skillsComponent,
     ContactComponent,
+    ServiceUnavailableComponent
   ],
   imports: [
     BrowserModule,
