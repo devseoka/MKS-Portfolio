@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { first } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,18 +10,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router){}
+  constructor(private router: Router, private http: HttpClient){}
   isOpen = false;
+  endpoint = `${environment.api}/cv/download`
   ngOnInit(): void {
-    console.log(`The status of the model is `, this.isOpen);
+  
   }
   onOpen(status: boolean) {
     this.isOpen = status;
+    this.checkServiceStatus()
   }
   checkServiceStatus() {
-    const isServiceDown = true; 
-    if (isServiceDown) {
-      this.router.navigate(['/503']);
-    }
+  const body =  { email: 'support@seokamoshele.digital', name: 'Moshele Seoka'}
+   this.http.post(this.endpoint, body).pipe(first()).subscribe({
+     error: () => {
+        this.router.navigate(['/503'])
+     }
+   })
   }
 }
