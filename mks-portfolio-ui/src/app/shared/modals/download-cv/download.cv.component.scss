@@ -1,13 +1,11 @@
-@import '../../../../assets/scss/main';
+@import '../../../../assets/scss/abstracts/variable';
 
 $modal-bg: rgba(0, 0, 0, 0.5);
 $modal-color: #fff;
 $modal-padding: 20px;
 $modal-width: 500px;
-$button-bg: #007bff;
-$button-color: #fff;
-$button-hover-bg: #0056b3;
-$input-padding: 0.675rem; // Padding for input fields
+$button-color: $mks-primary-400;
+$input-padding: 0.675rem; 
 
 .overlay {
   position: fixed;
@@ -113,7 +111,7 @@ $input-padding: 0.675rem; // Padding for input fields
       }
 
       &:hover {
-        background-color: $button-hover-bg;
+        background-color: $mks-primary-700;
       }
     }
   }
