@@ -28,7 +28,6 @@ export class DownloadCvComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     const statusObj = changes['isOpen'].currentValue;
     if (statusObj) {
-      console.log(`the status for opening model is =>`, statusObj);
       this.isOpen = statusObj as boolean;
     }
   }
@@ -74,12 +73,15 @@ export class DownloadCvComponent implements OnChanges {
 
   private handleDownloadError(error: HttpErrorResponse): void {
     this.close();
-    if (error.status === 409) {
-      const errors: string[] = error.error.errors;
-      errors.forEach((errorMsg: string) => this.toast.error(errorMsg));
-    } else {
-      this.toast.error(environment.message);
-    }
+    (error.error as Blob).text().then(response => {
+      const error = JSON.parse(response);
+      if (error.status == 409 && Array.isArray(error.errors)) {
+        const errors: string[] = error.errors;
+        errors.map((message) => this.toast.error(message))
+      } else {
+        this.toast.error(environment.message);
+      }
+    });
   }
 
   close() {

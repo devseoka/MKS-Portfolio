@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export default class CvGuardService {
   private endpoint = `${environment.api}/cv/download`;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, ) {}
   download(request: EmailRequest) {
-    return this.http.post(this.endpoint, request);
+    return this.http.post(this.endpoint, request,  { responseType: 'blob' });
   }
 }
