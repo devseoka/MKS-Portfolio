@@ -14,11 +14,11 @@ export class AppComponent implements OnInit {
   isOpen = false;
   endpoint = `${environment.api}/cv/download`
   ngOnInit(): void {
-  
+    this.checkServiceStatus()
   }
   onOpen(status: boolean) {
     this.isOpen = status;
-    this.checkServiceStatus()
+    
   }
   checkServiceStatus() {
   const body =  { email: 'support@seokamoshele.digital', name: 'Moshele Seoka'}
