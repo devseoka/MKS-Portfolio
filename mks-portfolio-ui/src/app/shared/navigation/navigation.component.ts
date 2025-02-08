@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/
 })
 export class NavigationComponent implements OnInit {
   @Output() modalChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
-
+  @Input() isServiceRunning = true
   isModalOpen = false;
   isOpen = false;
   isMobile = window.innerWidth <= 768;
@@ -15,6 +15,7 @@ export class NavigationComponent implements OnInit {
 
   navLinks: string[] = ['about', 'skills', 'contact'];
   activeIndex = 0;
+
 
   ngOnInit(): void {
     this.checkScreenSize();

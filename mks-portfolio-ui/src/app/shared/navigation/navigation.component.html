@@ -8,12 +8,7 @@
   </a>
 
   <!-- Hamburger icon for mobile -->
-  <div
-    class="hamburger"
-    id="hamburger-icon"
-    (click)="onOpen()"
-    (keydown.enter)="onOpen()"
-    tabindex="0">
+  <div class="hamburger" id="hamburger-icon" (click)="onOpen()" (keydown.enter)="onOpen()" tabindex="0">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
       <path fill="none" d="M0 0h24v24H0z" />
       <path
@@ -21,24 +16,22 @@
     </svg>
   </div>
 
-  <ul
-    id="nav-links"
-    (click)="setActiveLink(activeLink)"
-    (keydown.enter)="setActiveLink(activeLink, activeIndex)"
-    tabindex="0"
-    [class.open]="isOpen">
+  <ul id="nav-links" (click)="setActiveLink(activeLink)" (keydown.enter)="setActiveLink(activeLink, activeIndex)"
+    tabindex="0" [class.open]="isOpen">
     <li *ngFor="let link of navLinks; let i = index" [class.active]="activeLink === link">
       <a (click)="setActiveLink(link, i)" (keydown.enter)="setActiveLink(link, i)" tabindex="0">
         {{ link | titlecase }}
       </a>
     </li>
-    <li *ngIf="isMobile">
-      <a (click)="onDownload()" (keydown.enter)="onDownload()" tabindex="0">Download Resume</a>
-    </li>
+    <ng-container *ngIf="isServiceRunning">
+      <li *ngIf="isMobile">
+        <a (click)="onDownload()" (keydown.enter)="onDownload()" tabindex="0">Download Resume</a>
+      </li>
+    </ng-container>
   </ul>
-
-  <button type="button" (click)="onDownload()" (keydown.enter)="onDownload()">
-    Download Resume
-  </button>
+  <ng-container *ngIf="isServiceRunning">
+    <button type="button" (click)="onDownload()" (keydown.enter)="onDownload()">
+      Download Resume
+    </button>
+  </ng-container>
 </nav>
-

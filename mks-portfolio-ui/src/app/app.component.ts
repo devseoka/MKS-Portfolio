@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient){}
   isOpen = false;
   endpoint = `${environment.api}/cv/download`
+  isRunning = true
   ngOnInit(): void {
     this.checkServiceStatus()
   }
@@ -23,8 +24,13 @@ export class AppComponent implements OnInit {
   checkServiceStatus() {
   const body =  { email: 'support@seokamoshele.digital', name: 'Moshele Seoka'}
    this.http.post(this.endpoint, body).pipe(first()).subscribe({
+    complete: () => {
+      this.isRunning
+    },
      error: () => {
+       this.isRunning = false
         this.router.navigate(['/503'])
+       
      }
    })
   }
