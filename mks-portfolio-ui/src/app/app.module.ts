@@ -14,6 +14,7 @@ import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/
 import { ReactiveFormsModule } from '@angular/forms';
 import { authInterceptor } from '@helpers/api-auth.interceptor';
 import { ServiceUnavailableComponent } from '@components/service-unavailable/service-unavailable.component';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ServiceUnavailableComponent } from '@components/service-unavailable/ser
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HotToastModule.forRoot(),
   ],
   providers: [provideHttpClient(
     withInterceptors([authInterceptor]) 
