@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class AppComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient){}
   isOpen = false;
-  endpoint = `${environment.api}/api/health`
+  endpoint = `${environment.api}/health`
   isRunning = false
   isHealthCheckCompleted = false
   ngOnInit(): void {
