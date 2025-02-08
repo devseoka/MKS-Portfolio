@@ -1,3 +1,8 @@
-<app-navigation (modalChanged)="onOpen($event)"></app-navigation>
-<router-outlet></router-outlet>
-<app-download-cv [isOpen]="isOpen"></app-download-cv>
+<ng-container *ngIf="isHealthCheckCompleted; else loader">
+    <app-navigation [isServiceRunning]="isRunning" (modalChanged)="onOpen($event)"></app-navigation>
+    <router-outlet></router-outlet>
+    <app-download-cv [isOpen]="isOpen"></app-download-cv>
+</ng-container>
+<ng-template #loader>
+    <app-loader />
+</ng-template>
