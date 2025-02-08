@@ -1,4 +1,4 @@
-name: Azure Static Web Apps CI/CD
+name: Build And Deploy Seoka Moshele Portfolio
 
 on:
   push:
@@ -10,10 +10,35 @@ on:
       - develop
 
 jobs:
+  lint_and_format:
+    runs-on: ubuntu-latest
+    name: Lint and Format Code
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Checkout the code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Using Node.js version 18
+
+      - name: Install dependencies (Node.js)
+        run: |
+          cd mks-portfolio-ui  # Navigate to the mks-portfolio-ui directory
+          npm install  # Install Node.js dependencies
+
+      - name: Lint and Format Code
+        run: |
+          cd mks-portfolio-ui  # Navigate to the mks-portfolio-ui directory
+          npm run lint:fix  # Run lint and auto-fix issues
+          npm run prettier  # Run Prettier to format the code
+
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    needs: [lint_and_format]
     steps:
       - uses: actions/checkout@v3
         with:
