@@ -57,7 +57,7 @@ export class DownloadCvComponent implements OnChanges {
             I am looking forward to discussing it in detail with you.`)
         },
         error: (e: HttpErrorResponse) => {
-          if (Array.isArray(e.error.errors) && e.status == 400) {
+          if (e.status == 409) {
             const errors: string[] = e.error.errors;
             errors.map((error) => this.toast.error(error))
           }
