@@ -1,0 +1,41 @@
+@use "sass:math";
+@import '../../../assets/scss/abstracts/variable';
+
+// Configurable variables
+$spinner-size: 8rem;
+$spinner-thickness: 0.6rem;
+$spinner-speed: 0.75s;
+$spinner-color: $mks-primary-50;
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); // Better centering
+
+  width: $spinner-size;
+  height: $spinner-size;
+  border-radius: 50%;
+
+  // The "Modern" way: Conic gradient for the trail
+  // We use a mask to cut out the center, making it truly transparent
+  background: conic-gradient(from 0deg, transparent 0%, $spinner-color 100%);
+
+  // Create the ring effect without extra spans
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - #{$spinner-thickness}),
+    black calc(100% - #{$spinner-thickness} + 1px)
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - #{$spinner-thickness}),
+    black calc(100% - #{$spinner-thickness} + 1px)
+  );
+
+  animation: spin $spinner-speed linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}

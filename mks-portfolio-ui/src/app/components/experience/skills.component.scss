@@ -1,0 +1,76 @@
+@import '../../../assets/scss/abstracts/variable';
+
+section {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  height: fit-content;
+
+  hr {
+    border: none;
+    width: 100%;
+    height: 2px;
+    background-color: $mks-primary-400;
+    margin: 2rem 0;
+    opacity: 0.8;
+    border-radius: 4px;
+  }
+
+  article {
+    h2 {
+      font-size: 2rem;
+
+      @media (max-width: 64em) {
+        font-size: 1.7rem;
+        line-height: 1;
+        margin: 24px 0;
+      }
+    }
+
+    p {
+      @media (max-width: 64em) {
+        font-size: 0.875rem;
+      }
+    }
+
+    div {
+      display: grid;
+      gap: 0.875rem;
+      margin: 3rem 0;
+      grid-template-columns: repeat(3, 1fr);
+      @media (min-width: 75em) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: auto;
+      }
+
+      .skill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        svg {
+          width: 6.125rem;
+          height: 6.125rem;
+          margin-bottom: 1rem;
+          @media (max-width: 48em) {
+            width: 4rem;
+            height: 4rem;
+          }
+
+          @media (min-width: 48em) and (max-width: 75em) {
+            width: 5rem;
+            height: 5rem;
+          }
+        }
+
+        @media (max-width: 48em) {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 48em) {
+    grid-template-columns: 1fr;
+  }
+}

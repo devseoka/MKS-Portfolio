@@ -1,0 +1,135 @@
+@import '../../../assets/scss/abstracts/variable';
+
+nav {
+  background-color: $mks-secondary-900;
+  box-shadow: 0px 2px 5px darken($mks-primary-500, 10%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    height: 60px;
+    cursor: pointer;
+
+    svg {
+      height: 100%;
+      fill: $mks-primary-400;
+    }
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    svg {
+      fill: $mks-primary-500;
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    transition:
+      opacity 0.5s ease,
+      visibility 0.5s ease;
+
+    li {
+      text-align: center;
+      margin: 0 20px;
+      padding: 8px 0;
+
+      a {
+        text-decoration: none;
+        transition: color 0.3s ease;
+        &:hover {
+          color: $mks-primary-500;
+          font-weight: 600;
+        }
+      }
+
+      &.active {
+        border-bottom: 2px solid $mks-primary-400;
+        color: $mks-primary-400;
+        font-weight: 600;
+      }
+    }
+
+    &.open {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  button {
+    background-color: $mks-primary-500;
+    color: $mks-primary-50;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($mks-primary-500, 10%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    ul {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: $mks-secondary-900;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+
+      li {
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid $mks-secondary-800;
+
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+
+    .hamburger.open + ul {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    button {
+      display: none;
+    }
+  }
+}
